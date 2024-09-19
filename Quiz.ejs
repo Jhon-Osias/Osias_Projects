@@ -1,1 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Mini Quiz</h1>
+
+        <form action="/quiz/submit" method="POST" class="border p-4 rounded bg-light">
+            <% quizData.forEach((q, index) => { %>
+                <div class="mb-3">
+                    <h5><%= index + 1 %>. <%= q.question %></h5>
+                    <% q.options.forEach(option => { %>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="q<%= index %>" value="<%= option %>" id="q<%= index %>_<%= option %>" required>
+                            <label class="form-check-label" for="q<%= index %>_<%= option %>">
+                                <%= option %>
+                            </label>
+                        </div>
+                    <% }) %>
+                </div>
+            <% }) %>
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+        </form>
+
+        <% if (result) { %>
+            <div class="alert alert-success mt-4 text-center">
+                <strong><%= result %></strong>
+            </div>
+        <% } %>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
 
