@@ -1,1 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Basic Calculator</h1>
+        <form action="/calculator/calculate" method="POST" class="border p-4 rounded bg-light">
+            <div class="mb-3">
+                <label for="num1" class="form-label">Number 1:</label>
+                <input type="number" step="any" name="num1" id="num1" class="form-control" placeholder="Enter first number">
+            </div>
+            <div class="mb-3">
+                <label for="num2" class="form-label">Number 2:</label>
+                <input type="number" step="any" name="num2" id="num2" class="form-control" placeholder="Enter second number">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Calculate</button>
+        </form>
+
+        <% if (result) { %>
+            <div class="mt-4">
+                <% if (typeof result === 'string') { %>
+                    <div class="alert alert-danger"><%= result %></div>
+                <% } else { %>
+                    <div class="alert alert-success">
+                        <p><strong>Sum:</strong> <%= result.sum %></p>
+                        <p><strong>Difference:</strong> <%= result.diff %></p>
+                        <p><strong>Product:</strong> <%= result.prod %></p>
+                        <p><strong>Quotient:</strong> <%= result.quotient %></p>
+                        <p><strong>Average:</strong> <%= result.average %></p>
+                    </div>
+                <% } %>
+            </div>
+        <% } %>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+</body>
+</html>
 
