@@ -29,3 +29,5 @@ router.post('/calculator/calculate', (req, res) => {
         res.render('calculator', { result });
     }
 });
+
+module.exports = router
